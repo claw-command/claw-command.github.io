@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script>
+			(function(){
+				try {
+					var t = localStorage.getItem('cc-theme') || 'dark';
+					document.documentElement.setAttribute('data-theme', t);
+				} catch (e) {}
+			})();
+		</script>
+		
+		<link rel="modulepreload" href="/_app/immutable/entry/start.ekKjzbke.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/s9mFlSZU.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/HT3x1PWG.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/D9Iy_gg9.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/d8D1sCuC.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/D0iwhpLH.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/app.DpIWJB1l.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/NZTpNUN0.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/zUbJ3g1d.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+			<script>
+				{
+					__sveltekit_1w5nj8c = {
+						base: ""
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("/_app/immutable/entry/start.ekKjzbke.js"),
+						import("/_app/immutable/entry/app.DpIWJB1l.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
