@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Link, NavLink, Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header.jsx';
 import Social from './components/Social.jsx';
 import HomePage from './pages/HomePage.jsx';

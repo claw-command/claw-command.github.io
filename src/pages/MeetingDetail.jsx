@@ -2,10 +2,20 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { meetings } from '../data/meetings.js';
 
+function parseLocalDate(dateStr) {
+  if (!dateStr) return new Date(NaN);
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateStr);
+  if (m) {
+    const [, y, mo, d] = m;
+    return new Date(Number(y), Number(mo) - 1, Number(d));
+  }
+  return new Date(dateStr);
+}
+
 function fmtDate(d) {
   if (!d) return '';
   if (d.includes?.(' to ')) return d;
-  const dt = new Date(d);
+  const dt = parseLocalDate(d);
   if (isNaN(dt)) return d;
   return `${dt.getMonth() + 1}/${dt.getDate()}/${dt.getFullYear()}`;
 }
@@ -41,8 +51,8 @@ export default function MeetingDetail() {
       <div className="main-content">
         <div className="meeting-desc">Meeting not found.</div>
         <div className="meeting-nav">
-          <a className="date-link" href="/meetings">All Weeks</a>
-          <a className="date-link" href="/">Home</a>
+          <button className="date-link" onClick={() => navigate('/meetings')}>All Weeks</button>
+          <button className="date-link" onClick={() => navigate('/')}>Home</button>
         </div>
       </div>
     );
@@ -85,10 +95,10 @@ export default function MeetingDetail() {
 
       <div className="meeting-nav">
         <button className="date-link" disabled={!prevId} onClick={() => go(prevId)}>← Prev</button>
-        <a className="date-link" href="/meetings">All Weeks</a>
+        <button className="date-link" onClick={() => navigate('/meetings')}>All Weeks</button>
         <button className="date-link" disabled={!nextId} onClick={() => go(nextId)}>Next →</button>
       </div>
-      <a className="date-link" href="/">← Back</a>
+      <button className="date-link" onClick={() => navigate('/')}>← Back</button>
     </div>
   );
 }

@@ -1,18 +1,30 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getUpcomingMeeting } from '../data/meetings.js';
+
+function parseLocalDate(dateStr) {
+  if (!dateStr) return new Date(NaN);
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateStr);
+  if (m) {
+    const [, y, mo, d] = m;
+    return new Date(Number(y), Number(mo) - 1, Number(d));
+  }
+  return new Date(dateStr);
+}
 
 function fmtDate(d) {
   if (!d) return '';
   if (d.includes?.(' to ')) return d;
-  const dt = new Date(d);
+  const dt = parseLocalDate(d);
   if (isNaN(dt)) return d;
   return `${dt.getMonth() + 1}/${dt.getDate()}/${dt.getFullYear()}`;
 }
 
 export default function HomePage() {
+  const navigate = useNavigate();
   const upcoming = getUpcomingMeeting();
   const openDetails = () => {
-    if (upcoming) window.location.href = `/meetings/${upcoming.id}`;
+    if (upcoming) navigate(`/meetings/${upcoming.id}`);
   };
 
   return (

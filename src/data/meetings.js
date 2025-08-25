@@ -38,8 +38,19 @@ export const Fall_2025_Schedule = {
   ]
 };
 
+function parseLocalDate(dateStr) {
+  if (!dateStr) return new Date(NaN);
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateStr);
+  if (m) {
+    const [, y, mo, d] = m;
+    return new Date(Number(y), Number(mo) - 1, Number(d));
+  }
+  // Fallback to native parsing (handles ranges elsewhere)
+  return new Date(dateStr);
+}
 function formatShort(md) {
-  const d = new Date(md);
+  const d = parseLocalDate(md);
+  if (isNaN(d)) return md;
   return `${d.getMonth() + 1}/${d.getDate()}`;
 }
 function weekTitle(md) {
@@ -98,7 +109,11 @@ export function getUpcomingWeek(referenceDate = new Date()) {
     referenceDate.getDate(),
     12, 0, 0, 0
   );
-  const withDates = weeks.map((m) => ({ ...m, date: new Date(m.id + 'T12:00:00') }));
+  const withDates = weeks.map((m) => {
+    const d = parseLocalDate(m.id);
+    if (!isNaN(d)) d.setHours(12, 0, 0, 0);
+    return { ...m, date: d };
+  });
   const upcoming = withDates.filter((m) => m.date >= ref).sort((a, b) => a.date - b.date)[0];
   return upcoming || null;
 }
@@ -112,5 +127,5 @@ export function getStartedWeeks(referenceDate = new Date()) {
     referenceDate.getDate(),
     23, 59, 59, 999
   );
-  return weeks.filter((m) => new Date(m.id + 'T00:00:00') <= ref);
+  return weeks.filter((m) => parseLocalDate(m.id) <= ref);
 }

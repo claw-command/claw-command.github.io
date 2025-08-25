@@ -1,13 +1,24 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { meetings as weeks, Fall_2025_Schedule } from '../data/meetings.js';
 
+function parseLocalDate(dateStr) {
+  if (!dateStr) return new Date(NaN);
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateStr);
+  if (m) {
+    const [, y, mo, d] = m;
+    return new Date(Number(y), Number(mo) - 1, Number(d));
+  }
+  return new Date(dateStr);
+}
+
 function fmtMD(dateStr) {
-  const d = new Date(dateStr);
+  const d = parseLocalDate(dateStr);
   if (isNaN(d)) return dateStr;
   return `${d.getMonth() + 1}/${d.getDate()}`;
 }
 function fmtMDY(dateStr) {
-  const d = new Date(dateStr);
+  const d = parseLocalDate(dateStr);
   if (isNaN(d)) return dateStr;
   const yy = String(d.getFullYear()).slice(2);
   return `${d.getMonth() + 1}/${d.getDate()}/${yy}`;
@@ -52,6 +63,7 @@ const importantList = [
 ];
 
 export default function MeetingsIndex() {
+  const navigate = useNavigate();
   return (
     <div className="main-content" style={{ color: 'var(--text)' }}>
       <h1 className="week-title glitch" data-text="Fall 2025 Schedule">Fall 2025 Schedule</h1>
@@ -67,7 +79,7 @@ export default function MeetingsIndex() {
       </p>
 
       <div className="meeting-nav">
-        <a className="date-link" href="/" aria-label="Go to Home">← Home</a>
+        <button className="date-link" onClick={() => navigate('/')} aria-label="Go to Home">← Home</button>
       </div>
 
       <details open style={{ width: 'min(900px,94vw)', textAlign: 'left', marginBottom: 14, color: 'var(--text)' }}>
@@ -85,9 +97,14 @@ export default function MeetingsIndex() {
         <ul style={{ marginTop: 8 }}>
           {weeks.map((m) => (
             <li key={m.id} style={{ margin: '8px 0' }}>
-              <a href={`/meetings/${m.id}`} className="week-card-header" style={{ textDecoration: 'none' }}>
+              <button
+                className="week-card-header"
+                style={{ textDecoration: 'none', background: 'none', border: 'none', padding: 0, color: 'inherit', cursor: 'pointer' }}
+                onClick={() => navigate(`/meetings/${m.id}`)}
+                aria-label={`Open ${m.title}`}
+              >
                 <strong>{m.title}</strong>
-              </a>
+              </button>
               {m.events && m.events.length ? (
                 <ul style={{ marginTop: 6 }}>
                   {m.events.map((ev, i) => (

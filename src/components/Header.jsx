@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getStartedWeeks, getUpcomingMeeting } from '../data/meetings.js';
 
 export default function Header({ theme, onToggleTheme }) {
@@ -38,7 +38,7 @@ export default function Header({ theme, onToggleTheme }) {
         <button className="theme-toggle" aria-label="Toggle theme" onClick={onToggleTheme}>
           {theme === 'light' ? 'Dark mode' : 'White mode'}
         </button>
-        <Link className="date-link" to="/about">About</Link>
+  <button className="date-link" onClick={() => navigate('/about')}>About</button>
       </div>
 
       {menuOpen && (

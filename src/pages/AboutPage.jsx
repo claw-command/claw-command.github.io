@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function AboutPage() {
+  const navigate = useNavigate();
   return (
     <div className="main-content">
       <img src="/icons/Claw_Command_Bird_Only.svg" alt="Claw Command Logo" className="logo logo-light" />
@@ -21,7 +23,7 @@ export default function AboutPage() {
       </div>
 
       <div className="meeting-nav" style={{ marginTop: 16 }}>
-        <a className="date-link" href="/">← Home</a>
+  <button className="date-link" onClick={() => navigate('/')}>← Home</button>
       </div>
     </div>
   );
