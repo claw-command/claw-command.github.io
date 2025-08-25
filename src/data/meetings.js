@@ -18,17 +18,17 @@ export const Fall_2025_Schedule = {
     ]},
     { Week_of: '2025-08-25', Events: [
       { type: 'Recruitment', details: ['Be on the look out for Claw Commanders in your classes!'] },
-  { type: 'Movie_Screening', date: '2025-08-29', time: '17:00', title: 'Hackers (1995)', room: 'Circuit Space ET B-105' }
+  { type: 'Movie_Night', date: '2025-08-29', time: '17:00', title: 'Hackers (1995)', room: 'Circuit Space ET B-105' }
     ]},
     { Week_of: '2025-09-01', Events: [ { type: 'Recruitment', details: ['Be on the look out for Claw Commanders in your classes!'] } ] },
     { Week_of: '2025-09-08', Events: [ { type: 'Meeting', date: '2025-09-09', time: '15:00-16:00', name: 'General Club Meeting', room: 'Circuit Space ET B-105' } ] },
     { Week_of: '2025-09-15', Events: [ { type: 'Workshop', date: '2025-09-16', time: '15:00-16:00', topic: 'Pico-Ducky', room: 'Circuit Space ET B-105' } ] },
-    { Week_of: '2025-09-22', Events: [ { type: 'Guest_Speaker', date: '2025-09-23', time: '15:00-16:00', speaker: 'FireFly', room: 'Circuit Space ET B-105' }, { type: 'Movie_Screening', date: '2025-09-26', time: '17:00', title: 'Wargames (1983)', room: 'Circuit Space ET B-105' } ] },
+    { Week_of: '2025-09-22', Events: [ { type: 'Guest_Speaker', date: '2025-09-23', time: '15:00-16:00', speaker: 'FireFly', room: 'Circuit Space ET B-105' }, { type: 'Movie_Night', date: '2025-09-26', time: '17:00', title: 'Wargames (1983)', room: 'Circuit Space ET B-105' } ] },
     { Week_of: '2025-09-29', Events: [ { type: 'Workshop', date: '2025-09-30', time: '15:00-16:00', topic: 'Social Engineering', room: 'Circuit Space ET B-105' }, { type: 'Conference', date: '2025-10-02 to 2025-10-04', name: 'GMIS Conference' } ] },
     { Week_of: '2025-10-06', Events: [ { type: 'Meeting', date: '2025-10-07', time: '15:00-18:00', name: 'SentinelOne Threat Hunting', room: 'TBD' } ] },
     { Week_of: '2025-10-13', Events: [ { type: 'Conference', date: '2025-10-18', time: '09:00-18:00', name: 'OSSCON', details: ['Hosting Hardware Hacking Village', 'Carpool list'] } ] },
     { Week_of: '2025-10-20', Events: [ { type: 'Guest_Speaker', date: '2025-10-21', time: '15:00-16:00', speaker: 'Alex Lynd', room: 'Circuit Space ET B-105' } ] },
-    { Week_of: '2025-10-27', Events: [ { type: 'Conference', date: '2025-10-29 to 2025-11-01', name: 'SHPE Conference' }, { type: 'Conference', date: '2025-10-31 to 2025-11-02', name: 'Hackaday Supercon' }, { type: 'Movie_Screening', date: '2025-10-31', time: '17:00', title: 'Spy Kids', room: 'Circuit Space ET B-105' } ] },
+    { Week_of: '2025-10-27', Events: [ { type: 'Conference', date: '2025-10-29 to 2025-11-01', name: 'SHPE Conference' }, { type: 'Conference', date: '2025-10-31 to 2025-11-02', name: 'Hackaday Supercon' }, { type: 'Movie_Night', date: '2025-10-31', time: '17:00', title: 'Spy Kids', room: 'Circuit Space ET B-105' } ] },
     { Week_of: '2025-11-03', Events: [ { type: 'Workshop', date: '2025-11-04', time: '15:00-16:00', topic: 'ECTF Workshop by Curtis', room: 'Circuit Space ET B-105' } ] },
     { Week_of: '2025-11-10', Events: [ { type: 'Guest_Speaker', date: '2025-11-11', time: '15:00-16:00', speaker: 'Peter Morin', room: 'Circuit Space ET B-105' } ] },
     { Week_of: '2025-11-17', Events: [ { type: 'Workshop', date: '2025-11-17', time: '15:00-16:00', topic: 'Warm My Turkey', details: ['Use electronics and tech to warm a slice of turkey sandwich meat'], room: 'Circuit Space ET B-105' } ] },
