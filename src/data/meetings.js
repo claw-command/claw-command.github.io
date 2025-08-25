@@ -67,8 +67,8 @@ function normalizeEvent(e) {
       return { ...base, kind: 'Recruitment', title: 'Recruitment Efforts', items: Array.isArray(e.details) ? e.details : [] };
     case 'Event':
       return { ...base, kind: 'Event', title: e.name };
-    case 'Movie_Screening':
-      return { ...base, kind: 'Movie', title: `Movie Screening: ${e.title}` };
+    case 'Movie_Night':
+      return { ...base, kind: 'Movie', title: `Movie Night: ${e.title}` };
     case 'Meeting':
       return { ...base, kind: 'Meeting', title: e.name ?? 'Meeting' };
     case 'Workshop':

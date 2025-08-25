@@ -130,7 +130,7 @@ export default function MeetingsIndex() {
                               {ev.items && ev.items.length
                                 ? ev.items.map((item, ii) => <li key={ii}>{item}</li>)
                                 : null}
-                              {ev.title ? <li>{ev.title.replace('Movie Screening: ', '')}</li> : null}
+                              {ev.title ? <li>{ev.title.replace('Movie Night: ', '')}</li> : null}
                             </ul>
                           ) : null}
                         </>
