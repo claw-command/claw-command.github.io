@@ -18,7 +18,7 @@ export const Fall_2025_Schedule = {
     ]},
     { Week_of: '2025-08-25', Events: [
       { type: 'Recruitment', details: ['Be on the look out for Claw Commanders in your classes!'] },
-      { type: 'Movie_Screening', date: '2025-08-29', time: '17:00', title: 'Hackers (1995)' }
+  { type: 'Movie_Screening', date: '2025-08-29', time: '17:00', title: 'Hackers (1995)', room: 'Circuit Space ET B-105' }
     ]},
     { Week_of: '2025-09-01', Events: [ { type: 'Recruitment', details: ['Be on the look out for Claw Commanders in your classes!'] } ] },
     { Week_of: '2025-09-08', Events: [ { type: 'Meeting', date: '2025-09-09', time: '15:00-16:00', name: 'General Club Meeting', room: 'Circuit Space ET B-105' } ] },

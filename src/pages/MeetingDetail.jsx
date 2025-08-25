@@ -73,7 +73,7 @@ export default function MeetingDetail() {
                 {(ev.date || ev.time) && (
                   <div className="meeting-desc">
                     {ev.date ? fmtDate(ev.date) : ''}
-                    {ev.date && ev.time ? ' • ' : ''}
+                    {ev.date && ev.time ? ' - ' : ''}
                     {ev.time ? fmtTimeRange(ev.time) : ''}
                   </div>
                 )}

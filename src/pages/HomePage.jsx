@@ -50,8 +50,8 @@ export default function HomePage() {
 
   return (
     <div className="main-content">
-      <img src="/icons/Claw_Command_Bird_Only.svg" alt="Claw Command Logo" className="logo logo-light" />
-      <img src="/icons/Claw_Command_Bird_Only_White.svg" alt="" aria-hidden="true" className="logo logo-dark" />
+      <img src="/icons/Claw_Command.svg" alt="Claw Command Logo" className="logo logo-light" />
+      <img src="/icons/Claw_Command_White.svg" alt="" aria-hidden="true" className="logo logo-dark" />
       <h1 className="organization-name glitch glitch-clip" data-text="Claw Command">Claw Command</h1>
 
       {upcoming ? (
@@ -69,10 +69,8 @@ export default function HomePage() {
               <div className="meeting-desc" style={{ marginTop: 6 }}>
                 {nextEvent.event.time ? fmtTimeRange(nextEvent.event.time) + ' - ' : ''}
                 {fmtDate(nextEvent.event.date)}
+                {nextEvent.event.room ? ' - Room: ' + nextEvent.event.room : ''}
               </div>
-              {nextEvent.event.room ? (
-                <div className="meeting-desc">Room: {nextEvent.event.room}</div>
-              ) : null}
               <div className="meeting-nav" style={{ marginTop: 8 }}>
                 <button
                   className="date-link"

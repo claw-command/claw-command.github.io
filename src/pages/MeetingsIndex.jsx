@@ -124,6 +124,7 @@ export default function MeetingsIndex() {
                         <>
                           <span>{ev.date ? fmtDateShort(ev.date) + ' ' : ''}</span>
                           <strong>Movie Screening{ev.time ? ' ' + fmtTimeRange(ev.time) + ' start' : ''}</strong>
+                          {ev.room ? <div style={{ marginTop: 4 }}>Room: {ev.room}</div> : null}
                           {(ev.items && ev.items.length) || ev.title ? (
                             <ul style={{ marginTop: 6 }}>
                               {ev.items && ev.items.length
