@@ -129,3 +129,58 @@ export function getStartedWeeks(referenceDate = new Date()) {
   );
   return weeks.filter((m) => parseLocalDate(m.id) <= ref);
 }
+
+// Return the next upcoming event across all weeks, based on local dates.
+// Definition: earliest event whose start date is today or later. For same-day ties, earlier start time wins.
+export function getNextUpcomingEvent(referenceDate = new Date()) {
+  const ref = new Date(
+    referenceDate.getFullYear(),
+    referenceDate.getMonth(),
+    referenceDate.getDate(),
+    0, 0, 0, 0
+  );
+
+  function parseStart(dateStr) {
+    if (!dateStr) return new Date(NaN);
+    if (dateStr.includes(' to ')) {
+      const [a] = dateStr.split(' to ').map((s) => s.trim());
+      return parseLocalDate(a);
+    }
+    return parseLocalDate(dateStr);
+  }
+
+  function timeToMinutes(timeStr) {
+    if (!timeStr) return 24 * 60; // place undated times at the end of the same day
+    const start = timeStr.includes('-') ? timeStr.split('-')[0].trim() : timeStr.trim();
+    const m = /^(\d{1,2})(?::(\d{2}))?$/.exec(start);
+    if (!m) return 24 * 60;
+    let h = parseInt(m[1], 10);
+    const min = m[2] ? parseInt(m[2], 10) : 0;
+    if (!Number.isFinite(h) || !Number.isFinite(min)) return 24 * 60;
+    return h * 60 + min;
+  }
+
+  const entries = [];
+  for (const w of weeks) {
+    if (!Array.isArray(w.events)) continue;
+    for (const ev of w.events) {
+      if (!ev?.date) continue; // skip items without explicit dates
+      const start = parseStart(ev.date);
+      if (isNaN(start)) continue;
+      start.setHours(0, 0, 0, 0);
+      entries.push({
+        weekId: w.id,
+        weekTitle: w.title,
+        event: ev,
+        start,
+        timeMinutes: timeToMinutes(ev.time)
+      });
+    }
+  }
+
+  const upcoming = entries
+    .filter((e) => e.start >= ref)
+    .sort((a, b) => (a.start - b.start) || (a.timeMinutes - b.timeMinutes))[0];
+
+  return upcoming || null;
+}
