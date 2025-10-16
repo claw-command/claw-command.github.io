@@ -50,8 +50,9 @@ export default function HomePage() {
 
   return (
     <div className="main-content">
-      <img src="/icons/Claw_Command.svg" alt="Claw Command Logo" className="logo logo-light" />
-      <img src="/icons/Claw_Command_White.svg" alt="" aria-hidden="true" className="logo logo-dark" />
+      {/*  /icons/Claw_Command_White.svg */}
+      <img src="/icons/nocandy.png" alt="Claw Command Logo" className="logo logo-light" />
+      <img src="/icons/nocandy.png" alt="" aria-hidden="true" className="logo logo-dark" />
       <h1 className="organization-name glitch glitch-clip" data-text="Claw Command">Claw Command</h1>
 
       {upcoming ? (
